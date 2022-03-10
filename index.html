@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="all.min.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="svg hide" id="svg"></div>
+    <h1>My card title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus dolores ullam, adipisci sint aut magni!</p>
+    <button>Get Started</button>
+  </div>
+
+  <script src="all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.1/lottie.min.js"
+    integrity="sha512-CWKGqmXoxo+9RjazbVIaiFcD+bYEIcUbBHwEzPlT0FilQq3TCUac+/uxZ5KDmvYiXJvp32O8rcgchkYw6J6zOA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const playButton = document.querySelector('button');
+    const svgContainer = document.querySelector('#svg');
+    const animation = bodymovin.loadAnimation({
+      wrapper: svgContainer,
+      animType: 'svg',
+      loop: false,
+      autoplay: false,
+      path: 'https://assets8.lottiefiles.com/private_files/lf30_GXVoLb.json'
+    });
+
+    playButton.addEventListener('click', () => {
+      svgContainer.classList.remove('hide');
+      animation.goToAndPlay(0, true);
+    });
+
+    animation.addEventListener('complete', () => {
+      svgContainer.classList.add('hide');
+    });
+
+  </script>
+
+</body>
+
+</html>
